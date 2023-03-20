@@ -14,11 +14,11 @@ jobs:
       - name: Checkout the repo
         uses: actions/checkout@v2
       - run: echo "🎉 checked out ${{ github.actor }}/${{ github.repository }}"
-#      - name: Build and push the Docker image
-#        uses: docker/build-push-action@v2
-#        with:
-#          context: .
-#          push: true
-#          tags: ghcr.io/${{ github.actor }}/${{ github.repository }}:latest
-#          username: ${{ github.actor }}
-#          password: ${{ secrets.CR_PAT }}
+      - name: Build and push the Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/${{ github.repository }}:latest
+          username: ${{ github.actor }}
+          password: ${{ secrets.PUSH_CONTAINER_KEY }}
